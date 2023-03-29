@@ -1,0 +1,165 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #f5f7fa;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+aside {
+    width: 370px;
+    background: #1e2939;
+}
+
+.cv-photo {
+    margin-top: 25px;
+}
+
+.header-secondary {
+    color: #ffffff;
+}
+
+.contact-links {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.list-secondary {
+    color: #fb6d3a;
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-position: inside;
+}
+.list-secondary-item {
+    color: #ffffff;
+}
+.contact-block {
+    margin-top: 51px;
+    margin-left: 40px;
+}
+
+.tech-skills-block {
+    margin-top: 47px;
+    margin-left: 40px;
+}
+
+main {
+    padding: 102px 88px 102px 88px;
+}
+
+.main-description {
+    width: 400px;
+}
+
+.job-title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: blue;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 55px;
+}
+.description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #595959;
+    margin-bottom: 40px;
+}
+
+.projects {
+    width: 485px;
+}
+
+.list-primary {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.list-primary-item {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #595959;
+}
+
+.header-primary {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    margin-bottom: 12px;
+}
+
+.job-position {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.highlight {
+    color: #fb6d3a;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.job-date {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #a8a8a8;
+}
+
+.job-list {
+    width: 524px;
+    color: #595959;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    padding-left: 20px;
+    list-style-position: outside;
+    text-align: left;
+}
+
+.bold-stick {
+    color: #000000;
+}
+h4 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.stars {
+    text-align: right;
+    float: right;
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.stars span {
+    color: #fb6d3a;
+    cursor: default;
+    font-size: 14px;
+    margin-right: 4px;
+}
