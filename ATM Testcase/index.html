@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt bankomatu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+        <main>
+            <div>
+                <h1 class="top"> Scenariusz testowy projektu bankomatu</h1>
+                <h2 class="top">Bankomat</h2>
+                    <p class="main-info"><i>Aplikacja umożliwia sprawdzenie stanu konta oraz wypłacenie pieniędzy z konta powiązanego z 
+                        kartą, którą użytkownik umieści w bankomacie. </i></p>
+                    <p class="secondary-info"><i><b>Założenia</b></i></p>
+                        <ul>
+                            <li class="list-primary-item">Zakres pieniędzy na koncie: [0, 1000000]</li>
+                            <li class="list-primary-item">zakres pieniędzy w bankomacie: [0, 1000000]</li>
+                            <li class="list-primary-item">kod PIN: 4 cyfrowy</li>
+                            <li class="list-primary-item">limit na karcie: 9999</li>
+                            <li class="list-primary-item">minimalna kwota do wypłacenia: 50</li>
+                        </ul>
+                    <p class="secondary-info"><i><b>Funkcjonalności</b></i></p> 
+                    <ol><li><b>Wypłata gotówki</b></li>
+                        <p class="list-secondary-item">Po włożeniu karty do czytnika i poprawnym wprowadzeniu kodu PIN, użytkownik może 
+                            wypłacić gotówkę wybierając jedną z możliwych opcji (50, 100, 200, 300, 400, 500, 750, 
+                            1000) lub podając inną kwotę (wielokrotność 50).</p>
+                            <ul>
+                                <li class="list-item">Jeśli użytkownik nie posiada wystarczającej kwoty na koncie, zostanie wypłacona 
+                                gotówka pomniejszona o odpowiednią różnicę. Wyjątkiem jest karta z debetem, 
+                                umożliwiająca wypłatę powyżej stanu konta.</li>
+                                <li class="list-item">Użytkownik nie może wypłacić więcej gotówki, niż pozwala na to ustalony limit dla 
+                                    karty. </li>
+                                <li class="list-item">Podczas wypłacania gotówki użytkownik może poprosić o wydruk potwierdzający 
+                                    transakcję. </li> 
+                                <li class="list-item">Odbiór gotówki jest możliwy po wyciągnięciu karty z bankomatu i musi nastąpić w 
+                                    ciągu 10 sekund. Po przekroczeniu tego czasu, gotówka wraca do bankomatu, a 
+                                    transakcja uznawana jest za nieważną.</li>
+                                <li class="list-item">W przypadku nie odebrania karty przed odbiorem gotówki, karta jest zatrzymywana 
+                                    przez bankomat. </li>
+                                                                      
+                            </ul>
+                        <li><b>Wypłata gotówki</b></li>
+                        <p class="list-secondary-item">Po włożeniu karty do czytnika i poprawnym wprowadzeniu kodu PIN, użytkownik może 
+                            sprawdzić stan konta.</p>
+                        <li><b>Zablokowanie karty</b></li>
+                        <p class="list-secondary-item">W przypadku włożenia karty, która ma zostać zablokowana, bankomat zatrzymuje ją 
+                            informując o tym użytkownika.</p> 
+                        <li><b>Obsługa innych kart</b></li>
+                        <p class="list-secondary-item">Bankomat nie obsługuje kart innych dostawców.</p>
+
+
+
+                    </ol>   
+
+            </div>
+            
+            <div>
+                
+                <h1>Testcase</h1>
+
+               
+            </div>
+           
+            <div>
+                <ol>
+                        <li class="main"><b>Testcase: </b> Czy użytkownikowi który nie posiada wystarczającej kwoty na koncie, zostanie wypłacona gotówka pomniejszona o odpowiednią różnicę. ID 1</li>
+                        <li class="main">
+                            <b>Business Requirement ID: </b> BK 1</li>
+                        
+                        <li class="main"><b>Description: </b> Sprawdzenie pomniejszania wypłacanych środków.</li>
+
+                        <li class="main"><b>Precondition:</b> Ważny zarejestrowany użytkownik z dostępem do zarządzania kontem.</li>
+                        <li class="main-description"><b>Input Test Data :</b>Włóż karte z Pieniędzmi na koncie.Password: 1111</li>
+                
+                
+                    <ul>
+                        <li><b>Step 1 Action :</b> Zaloguj się do bankomatu z prawidłowym z ważnymi danymi uwierzytelniającymi.</li>
+                        <li><b>Expected :</b> Strona zalogowania powinna się ukazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>    
+                        <li><b>Step 2 Action :</b> Kliknij wypłata gotówki w  prawym górnym rogu.</li>
+                        <li><b>Expected :</b>: Ekran wypłat powinnien się pokazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    
+                    </ul>
+                    <ul>   
+                        <li><b>Step 3 Action :</b> Kliknij  kwote większą niż stan konta.</li>
+                        <li><b>Expected :</b> Na ekranie powinnien pojawić się komunikat Czy chcesz wydruk.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>    
+                    <ul>    
+                        <li><b>Step 4 Action :</b> Potwierdz lub nie chęć wydruku potwierdzenia wypłaty.</li>
+                        <li class="Expected"><b>Expected :</b> Odbierz karte, bankomat powinnien wypłacić kwote pomniejszoną o odpowiednią różnice, odbierz wydruk jeśli kliknełeś tak. 
+                        </li>
+                        <li><b>Status :<span class="highlight"> Fail - Bankomat nie pomniejszył o odpowiednią różnice.</span></b></li>
+                    
+                    </ul> 
+                   
+                    
+                    
+                    <li class="main"><b>Date :</b> 10.03.2023
+                    </li> 
+                    <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                </ol>
+            </div>
+            <h1>Testcase</h1>
+            <div>
+                
+
+            
+                <ol>
+                        <li class="main"><b>Testcase: </b> Czy karta z debetem, umożliwi wypłatę powyżej stanu konta. ID 2</li>
+                        <li class="main">
+                            <b>Business Requirement ID: </b> BK 2</li>
+                        
+                        <li class="main"><b>Description: </b> Sprawdzenie pomniejszania wypłacanych środków.</li>
+
+                        <li class="main"><b>Precondition:</b> Ważny zarejestrowany użytkownik z dostępem do zarządzania kontem.</li>
+                        <li class="main-description"><b>Input Test Data :</b>Włóż karte z Debetem na koncie.Password: 1111</li>
+                
+                
+                    <ul>
+                    
+                        <li><b>Step 1 Action :</b> Zaloguj się do bankomatu z prawidłowym z ważnymi danymi uwierzytelniającymi.</li>
+                        <li><b>Expected :</b> Strona zalogowania powinna się ukazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>    
+                        <li><b>Step 2 Action :</b> Kliknij wypłata gotówki w  prawym górnym rogu.</li>
+                        <li><b>Expected :</b>: Ekran wypłat powinnien się pokazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>   
+                        <li><b>Step 3 Action :</b> Kliknij kwote większą niż stan konta.</li>
+                        <li><b>Expected :</b> Na ekranie powinnien pojawić się komunikat Czy chcesz wydruk.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>    
+                    <ul>    
+                        <li><b>Step 4 Action :</b> Potwierdz lub nie chęć wydruku potwierdzenia wypłaty.</li>
+                        <li class="Expected"><b>Expected :</b> Odbierz karte, bankomat powinnien wypłacić kwote pomniejszoną o odpowiednią różnice, odbierz wydruk jeśli kliknełeś tak. 
+                        </li>
+                        <li><b>Status :<span class="second-highlight"> Test Passed</span></b></li>
+                    
+                    </ul> 
+                        <li class="main"><b>Date :</b> 10.03.2023
+                        </li> 
+                        <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                </ol>
+            <h1>Testcase</h1>    
+            <div>
+                
+
+            
+                <ol>
+                        <li class="main"><b>Testcase: </b>  Czy użytkownik wypłaci więcej gotówki, niż pozwala na to ustalony limit dla karty. ID 3</li>
+                        <li class="main">
+                            <b>Business Requirement ID: </b> BK 3</li>
+                        
+                        <li class="main"><b>Description: </b> Możliwość użytkownika wypłacenia więcekszej gotówki, niż pozwala na to ustalony limit dla karty.
+                        </li>
+
+                        <li class="main"><b>Precondition:</b> Ważny zarejestrowany użytkownik z dostępem do zarządzania kontem.</li>
+                        <li class="main-description"><b>Input Test Data :</b>Włóż karte z Pieniędzmi na koncie.Password: 1111</li>
+                
+                
+                    <ul>
+                        <li><b>Step 1 Action :</b>Zaloguj się do bankomatu z prawidłowym z ważnymi danymi uwierzytelniającymi.</li>
+                        <li><b>Expected :</b> Strona zalogowania powinna się ukazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>    
+                        <li><b>Step 2 Action :</b> Kliknij wypłata gotówki w  prawym górnym rogu.</li>
+                        <li><b>Expected :</b>: Ekran wypłat powinnien się pokazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>   
+                        <li><b>Step 3 Action :</b> Kliknij  kwote większą niż limit wypłacenia.
+                        </li>
+                        <li><b>Expected :</b> Na ekranie powinnien pojawić się komunikat Czy chcesz wydruk.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>    
+                    <ul>    
+                        <li><b>Step 4 Action :</b> Potwierdz lub nie chęć wydruku potwierdzenia wypłaty.</li>
+                        <li class="Expected"><b>Expected :</b>: Odbierz karte, bankomat nie powinnien wypłacić kwoty powyżej limitu na karcie. </li>
+                        <li><b>Status :<span class="highlight"> Fail - Bankomat wypłacił kwote wyższą niż limit.</span></b></li>
+                    
+                    </ul> 
+                        <li class="main"><b>Date :</b> 10.03.2023
+                        </li> 
+                        <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                </ol>
+            </div>
+        <div>
+        <h1>Testcase</h1>
+        
+
+        
+            <ol>
+                    <li class="main"><b>Testcase: </b> Czy Odbiór gotówki jest możliwy po wyciągnięciu karty z bankomatu i czy musi nastąpić w ciągu 10 sekund. Czy po przekroczeniu tego czasu, gotówka wraca do bankomatu, a transakcja uznawana jest za nieważną.  ID 4</li>
+                    <li class="main">
+                        <b>Business Requirement ID: </b> BK 4</li>
+                    
+                    <li class="main"><b>Description: </b> Możliwość użytkownika wypłacenia więcekszej gotówki, niż pozwala na to ustalony limit dla karty.
+                    </li>
+
+                    <li class="main"><b>Precondition:</b> Ważny zarejestrowany użytkownik z dostępem do zarządzania kontem.</li>
+                    <li class="main-description"><b>Input Test Data :</b>Włóż karte z Pieniędzmi na koncie.Password: 1111</li>
+            
+            
+                <ul>
+                    <li><b>Step 1 Action :</b>Zaloguj się do bankomatu z prawidłowym z ważnymi danymi uwierzytelniającymi.</li>
+                    <li><b>Expected :</b> Strona zalogowania powinna się ukazać.</li>
+                    <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                </ul>
+                <ul>    
+                    <li><b>Step 2 Action :</b> Kliknij wypłata gotówki w  prawym górnym rogu.</li>
+                    <li><b>Expected :</b>: Ekran wypłat powinnien się pokazać.</li>
+                    <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                </ul>
+                <ul>   
+                    <li><b>Step 3 Action :</b> Kliknij dowolną kwote.</li>
+                    <li><b>Expected :</b> Na ekranie powinnien pojawić się komunikat Czy chcesz wydruk.</li>
+                    <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                </ul>    
+                <ul>    
+                    <li><b>Step 4 Action :</b> Potwierdz lub nie chęć wydruku potwierdzenia wypłaty.</li>
+                    <li class="Expected"><b>Expected :</b>: Na ekranie pojawi się polecenie odebrania karty. </li>
+                    <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                
+                </ul>
+                <ul>    
+                    <li class="Expected"><b>Step 5 Action :</b> Odbierz karte i poczekaj 10 sekund aby pieniądze wróciły do bakomatu i tranzakcja została anulowana.</li>
+                    <li class="Expected"><b>Expected :</b>: Po upływie 10 sekund  pieniądze powinny wrócić do bankomatu a tranzakcja powinna zostać anulowana. </li>
+                    <li><b>Status :<span class="second-highlight"> Pass - Pieniądze wróciły do bankomatu po 10 sekundach, tranzakcja anulowana.</span></b></li>
+                
+                </ul>  
+                    <li class="main"><b>Date :</b> 10.03.2023
+                    </li> 
+                    <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+            </ol>
+        </div>
+        <div>
+            <h1>Testcase</h1>
+            
+    
+            
+                <ol>
+                        <li class="main"><b>Testcase: </b> Czy w  przypadku nie odebrania karty przed odbiorem gotówki, karta jest zatrzymywana 
+                            przez bankomat. ID 5</li>
+                        <li class="main">
+                            <b>Business Requirement ID: </b> BK 5</li>
+                        
+                        <li class="main"><b>Description: </b> Sprawdzenie czy nie odebranie karty powoduje zatrzymanie jej w bankomacie.</li>
+    
+                        <li class="main"><b>Precondition:</b> Ważny zarejestrowany użytkownik z dostępem do zarządzania kontem.</li>
+                        <li class="main-description"><b>Input Test Data :</b>Włóż karte z Pieniędzmi na koncie.Password: 1111</li>
+                
+                
+                    <ul>
+                        <li><b>Step 1 Action :</b>Zaloguj się do bankomatu z prawidłowym z ważnymi danymi uwierzytelniającymi.</li>
+                        <li><b>Expected :</b> Strona zalogowania powinna się ukazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>    
+                        <li><b>Step 2 Action :</b> Kliknij wypłata gotówki w  prawym górnym rogu.</li>
+                        <li><b>Expected :</b>: Ekran wypłat powinnien się pokazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>   
+                        <li><b>Step 3 Action :</b> Kliknij dowolną kwote.</li>
+                        <li><b>Expected :</b> Na ekranie powinnien pojawić się komunikat Czy chcesz wydruk.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>    
+                    <ul>    
+                        <li><b>Step 4 Action :</b> Potwierdz lub nie chęć wydruku potwierdzenia wypłaty.</li>
+                        <li class="Expected"><b>Expected :</b>: Na ekranie pojawi się polecenie odebrania karty. </li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    
+                    </ul>
+                    <ul>    
+                        <li><b>Step 5 Action :</b> Nie odbieraj karty i poczekaj aby karta została zatrzymana.
+                            </li>
+                        <li class="Expected"><b>Expected :</b>Po upływieczasu na odebranie karty, karta powinnazostać zatrzymana. </li>
+                        <li><b>Status :<span class="second-highlight"> Pass - Karta została zatrzymana.</span></b></li>
+                    
+                    </ul>  
+                        <li class="main"><b>Date :</b> 10.03.2023
+                        </li> 
+                        <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                </ol>
+            </div>
+            <h1>Testcase</h1>
+            
+    
+            
+                <ol>
+                        <li class="main"><b>Testcase: </b> Sprawdzanie stanu konta. ID 6</li>
+                        <li class="main">
+                            <b>Business Requirement ID: </b> BK 6</li>
+                        
+                        <li class="main"><b>Description: </b> Po włożeniu karty do czytnika i poprawnym wprowadzeniu kodu PIN, użytkownik może sprawdzić stan konta.</li>
+    
+                        <li class="main"><b>Precondition:</b> Ważny zarejestrowany użytkownik z dostępem do zarządzania kontem.</li>
+                        <li class="main-description"><b>Input Test Data :</b>Włóż karte z Pieniędzmi na koncie.Password: 1111</li>
+                
+                
+                    <ul>
+                        <li><b>Step 1 Action :</b>Zaloguj się do bankomatu z prawidłowym z ważnymi danymi uwierzytelniającymi.</li>
+                        <li><b>Expected :</b> Strona zalogowania powinna się ukazać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass</span></b></li>
+                    </ul>
+                    <ul>    
+                        <li><b>Step 2 Action :</b> Kliknij stan konta w lewym górnym rogu.</li>
+                        <li><b>Expected :</b>: Ekran powinnien pokazac stan konta.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass - Stan konta się pokazał.</span></b></li>
+                    </ul>
+                      
+                        <li class="main"><b>Date :</b> 10.03.2023
+                        </li> 
+                        <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                </ol>
+            </div>
+        
+        <h1>Testcase</h1>
+        <div>
+
+        
+            <ol>
+                    <li class="main"><b>Testcase: </b> Zablokowanie karty. ID 7</li>
+                    <li class="main">
+                        <b>Business Requirement ID: </b> BK 7</li>
+                    
+                    <li class="main"><b>Description: </b> Czy w przypadku włożenia karty, która ma zostać zablokowana, bankomat zatrzymuje ją 
+                        informując o tym użytkownika.</li>
+
+                    <li class="main"><b>Precondition:</b> Karta ma być kradziona i zablokowana przez bank.</li>
+                    <li class="main-description"><b>Input Test Data :</b>Włóż karte kradzioną i zablokowaną.</li>
+            
+            
+                <ul>
+                    <li><b>Step 1 Action :</b>Zaloguj się do bankomatu kradzioną kartą.</li>
+                    <li><b>Expected :</b> Strona z informacją zatrzymania karty powinna się ukazać.</li>
+                    <li><b>Status :<span class="second-highlight"> Pass - Karta została zatrzymana.</span></b></li>
+                </ul>
+                
+                  
+                    <li class="main"><b>Date :</b> 10.03.2023
+                    </li> 
+                    <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+            </ol>
+        </div>
+        <div>
+            <h1>Testcase</h1>
+            
+    
+            
+                <ol>
+                        <li class="main"><b>Testcase: </b> Obsługa innych kart. ID 8</li>
+                        <li class="main">
+                            <b>Business Requirement ID: </b> BK 8</li>
+                        
+                        <li class="main"><b>Description: </b>Bankomat nie powinnien obsłużyć kart innych dostawców.</li>
+    
+                        <li class="main"><b>Precondition:</b> Niezarejestrowany użytkownik z kartą innego dostawcy.</li>
+                        <li class="main-description"><b>Input Test Data :</b>Włóż karte innego dostawcy.</li>
+                
+                
+                    <ul>
+                        <li><b>Step 1 Action :</b>Zaloguj się do bankomatu kartą innego dostawcy.</li>
+                        <li><b>Expected :</b> Bankomat nie powinnien obsłużyć innej karty i powinnien ją oddać.</li>
+                        <li><b>Status :<span class="second-highlight"> Pass - Bankoma nie obsłużył karty innego dostawcy.</span></b></li>
+                    </ul>
+                    
+                      
+                        <li class="main"><b>Date :</b> 10.03.2023
+                        </li> 
+                        <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                </ol>
+            </div>
+            <div>
+                <h1>Testcase</h1>
+                
+        
+                
+                    <ol>
+                            <li class="main"><b>Testcase: </b> Obsługa innych kart w uszkodzonym bankomacie. ID 9</li>
+                            <li class="main">
+                                <b>Business Requirement ID: </b> BK 9</li>
+                            
+                            <li class="main"><b>Description: </b>Uszkodzony bankomat nie powinnien obsłużyć kart żadnych kart.</li>
+        
+                            <li class="main"><b>Precondition:</b> Niezarejestrowany użytkownik z kartą innego dostawcy.</li>
+                            <li class="main-description"><b>Input Test Data :</b>Włóż karte innego dostawcy do uszkodzonego bankomatu.</li>
+                    
+                    
+                        <ul>
+                            <li><b>Step 1 Action :</b>Zaloguj się do uszkodzonego bankomatu kartą innego dostawcy.</li>
+                            <li><b>Expected :</b> Bankoma nie powinnien obsłużyć żadnej karty i powinnien ją oddać.</li>
+                            <li><b>Status :<span class="highlight"> Fail - Bankomat wydał karte innego dostawcy i wypłacił 100zł.</span></b></li>
+                        </ul>
+                        
+                          
+                            <li class="main"><b>Date :</b> 10.03.2023
+                            </li> 
+                            <li class="end"><b>Tester :</b> Adrian Kowalski</li>       
+                    </ol>
+                </div>
+    
+
+           
+
+
+
+            
+                
+        </main>
+</html>
+
